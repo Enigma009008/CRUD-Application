@@ -1,0 +1,13 @@
+D:\Dem.ekzamen\Crud_Application\Crud_Application\obj\Debug\Crud_Application.csproj.CoreCompileInputs.cache
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\Crud_Application.exe.config
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\Crud_Application.exe
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\Crud_Application.pdb
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\EntityFramework.dll
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\EntityFramework.xml
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dem.ekzamen\Crud_Application\Crud_Application\bin\Debug\ru\EntityFramework.resources.dll
+D:\Dem.ekzamen\Crud_Application\Crud_Application\obj\Debug\Crud_Application.csproj.CopyComplete
+D:\Dem.ekzamen\Crud_Application\Crud_Application\obj\Debug\Crud_Application.exe
+D:\Dem.ekzamen\Crud_Application\Crud_Application\obj\Debug\Crud_Application.pdb
+D:\Dem.ekzamen\Crud_Application\Crud_Application\obj\Debug\Crud_Application.csproj.AssemblyReference.cache
