@@ -10,76 +10,95 @@ namespace Crud_Application
     {
         private static ObservableCollection<Player> Players { get; set; }
 
-       
+
         public static int Action { get; set; }
 
-        static void Main(string[] args)
-        {
-            Players = new ObservableCollection<Player>();           
+         static void Main(string[] args)
+         { 
+        
+
+
+            Players = new ObservableCollection<Player>();
             while (Action != 5)
             {
-                Console.WriteLine("Пожалуйста,укажите что вы хотите сделать?");
-                ListCommand();
-                Action = int.Parse(Console.ReadLine());
-                switch (Action)
+
+                try
                 {
-                    case 1:
-                        AppData.db.Player.Add(ActionPlayer(new Player()));
-                        AppData.db.SaveChanges();
-                        Console.WriteLine("Данные успешно добавлены!");
-                        break;
-                    case 2:
-                        Console.WriteLine("Укажите ID: ");
-                        int IdEditor = int.Parse(Console.ReadLine());
-                        var selectItemEditor = AppData.db.Player.FirstOrDefault(item => item.ID == IdEditor);
-                        if (selectItemEditor != null)
-                        {
-                            ActionPlayer(selectItemEditor);
+
+                    Console.WriteLine("Пожалуйста,укажите что вы хотите сделать?");
+                    ListCommand();
+                    Action = int.Parse(Console.ReadLine());
+                    switch (Action)
+                    {
+                        case 1:
+                            AppData.db.Player.Add(ActionPlayer(new Player()));
                             AppData.db.SaveChanges();
-                            Console.WriteLine("Данные успешно отредактированы!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Такого пользователя не существует!");
-                        }
-                        break;
-                    case 3:
-                        Console.WriteLine("Укажите ID: ");
-                        int IdRemove = int.Parse(Console.ReadLine());
-                        var SelectedItemRemove = AppData.db.Player.FirstOrDefault(item => item.ID == IdRemove);
-                        if(SelectedItemRemove != null)
-                        {
-                            AppData.db.Player.Remove(SelectedItemRemove);
-                            AppData.db.SaveChanges();
-                            Console.WriteLine("Данные успешно удалены!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Такого пользователя не существует!");
-                        }
-                        break;
-                    case 4:
-                    if (Players != null)
-                        {                      
-                        Players = new ObservableCollection<Player>(AppData.db.Player.ToList());
-                        foreach (var item in Players)
-                        {
-                            Console.WriteLine("ID: " + item.ID);
-                            Console.WriteLine("Имя: " + item.LastName);
-                            Console.WriteLine("Фамилия: " + item.FirstName);
-                            Console.WriteLine("Команда: " + item.Team);
-                            Console.WriteLine("Позиция: " + item.Position);
-                            Console.WriteLine("Возраст: " + item.Age);
-                            Console.WriteLine("-------------------------------------");
-                        }
-                      
-                       
+                            Console.WriteLine("Данные успешно добавлены!");
+                            break;
+                        case 2:
+                            Console.WriteLine("Укажите ID: ");
+                            int IdEditor = int.Parse(Console.ReadLine());
+                            var selectItemEditor = AppData.db.Player.FirstOrDefault(item => item.ID == IdEditor);
+                            if (selectItemEditor != null)
+                            {
+                                ActionPlayer(selectItemEditor);
+                                AppData.db.SaveChanges();
+                                Console.WriteLine("Данные успешно отредактированы!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Такого пользователя не существует!");
+                            }
+                            break;
+                        case 3:
+                            Console.WriteLine("Укажите ID: ");
+                            int IdRemove = int.Parse(Console.ReadLine());
+                            var SelectedItemRemove = AppData.db.Player.FirstOrDefault(item => item.ID == IdRemove);
+                            if (SelectedItemRemove != null)
+                            {
+                                AppData.db.Player.Remove(SelectedItemRemove);
+                                AppData.db.SaveChanges();
+                                Console.WriteLine("Данные успешно удалены!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Такого пользователя не существует!");
+                            }
+                            break;
+                        case 4:
+                            if (Players != null)
+                            {
+                                Players = new ObservableCollection<Player>(AppData.db.Player.ToList());
+                                foreach (var item in Players)
+                                {
+                                    Console.WriteLine("ID: " + item.ID);
+                                    Console.WriteLine("Имя: " + item.LastName);
+                                    Console.WriteLine("Фамилия: " + item.FirstName);
+                                    Console.WriteLine("Команда: " + item.Team);
+                                    Console.WriteLine("Позиция: " + item.Position);
+                                    Console.WriteLine("Возраст: " + item.Age);
+                                    Console.WriteLine("-------------------------------------");
+                                }
+
+
+                            }
+                            break;
                     }
-                     break;
                 }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message, ex.Source);
+
+                }
+
+
             }
 
-        }
+
+         }
+
+
 
         private static void ListCommand()
         {
@@ -106,13 +125,13 @@ namespace Crud_Application
             Console.Write("Введите позицию игрока: ");
             player.Position = Console.ReadLine();
             Console.Write("Введите возраст игрока: ");
-            player.Age = int.Parse(Console.ReadLine());           
+            player.Age = int.Parse(Console.ReadLine());
             return player;
 
 
         }
 
+
     
-        
     }
 }
